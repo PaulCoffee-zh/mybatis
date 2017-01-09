@@ -1,0 +1,32 @@
+spring: 
+  datasource:
+    url: jdbc:mysql://192.168.83.84:3308/akworksche_dev?useUnicode=true&characterEncoding=utf-8
+    username: akjfdev
+    password: sajkf898
+    driver-class-name: com.mysql.jdbc.Driver
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  redis:
+    cluster:
+       max-redirects: 2
+       nodes: 192.168.83.51:6379,192.168.83.52:6379,192.168.83.53:6379,192.168.83.51:6378,192.168.83.52:6378,192.168.83.53:6378
+  
+server:
+  port: 8181
+  session:
+    timeout: 1800
+    
+  
+mapper:
+    mappers:
+        - com.akcomejf.cube.framework.MyMapper
+    not-empty: false
+    identity: MYSQL
+
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
